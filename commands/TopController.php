@@ -49,10 +49,12 @@ class TopController extends Controller
 			$res['rubrics'] = $this->rubrics->save();
 			Yii::$app->log->getLogger()->log($res, Logger::LEVEL_INFO);
 
+			echo 'done.'.PHP_EOL;
 			return ExitCode::OK;
 		} catch (\Exception $e) {
 			Yii::$app->log->getLogger()->log($e->getMessage(), Logger::LEVEL_ERROR);
 
+			echo 'error, see logs.'.PHP_EOL;
 			return ExitCode::UNSPECIFIED_ERROR;
 		}
 	}
